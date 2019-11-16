@@ -45,14 +45,16 @@ def check_results():
 
         if detected_emotion == body['emotion']:
             return jsonify({
-                'message': '✅ You won! You showed ' + desired_emotion
+                'message': '✅ You won! You showed ' + desired_emotion,
+                'success': True
             })
         else:
             return jsonify({
                 'message': '❌ You failed! You needed to show ' + 
                            desired_emotion + 
                            ' but you showed ' + 
-                           detected_emotion
+                           detected_emotion,
+                'success': False
             })
     else:
         return jsonify({
